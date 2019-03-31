@@ -10,15 +10,21 @@ const router = express.Router();
 
 mongoose.connect('mongodb+srv://andre:andre@cluster0-e6tho.azure.mongodb.net/test?retryWrites=true');
 
+// carrega os models
+const Product = require('./models/product');
+const Customer = require('./models/customer');
+const Order = require('./models/order');
 
 // carrega as rotas
 const indexRoute = require('./routes/index-route');
 const productRoute = require('./routes/product-route');
+const customerRoute = require('./routes/customer-route');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use('/', indexRoute);
 app.use('/products', productRoute);
+app.use('/customers', customerRoute);
 
 module.exports = app;

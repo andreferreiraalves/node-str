@@ -5,33 +5,33 @@ const Schema = mongoose.Schema;
 
 const schema = new Schema({
     title: {
-        type: string,
+        type: String,
         required: true,
         trim: true
     },
     slug: {
-        type: string,
-        required: true,
+        type: String,
+        required: [true, 'slug é obrigatório'],
         trim: true,
         index: true,
         unique: true
     },
     description: {
-        type: string,
+        type: String,
         required: true,
         trim: true
     },
     price: {
-        type: number,
+        type: Number,
         required: true
     },
     active: {
-        type: boolean,
+        type: Boolean,
         required: true,
         default: true
     },
     tags: [{
-        type: string,
+        type: String,
         required: true
     }]
 });
